@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1" />
+    <title>slide test</title>
+    <style>
+        .dummyText {
+            width: 100%;
+            margin: 20px;
+        }
+        .slideInButton {
+            width: 80%;
+            margin: 30px auto;
+            background-color: #c0392b;
+            color: #ecf0f1;
+            text-align: center;
+            padding: 20px 5%;
+            font-size: 20px;
+            -webkit-border-radius: 8px;
+            -moz-border-radius: 8px;
+            -ms-border-radius: 8px;
+            -o-border-radius: 8px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .jq-slide-in-element {
+            width: 200px;
+            height: 200px;
+            background-color: #2980b9;
+            color: #ecf0f1;
+        }
+        .jq-slide-in-element .jq-slide-in-close {
+            position: absolute;
+            left: 30px;
+            bottom: 10px;
+            background-color: #c0392b;
+            color: #ecf0f1;
+            padding: 20px;
+            font-size: 20px;
+            -webkit-border-radius: 8px;
+            -moz-border-radius: 8px;
+            -ms-border-radius: 8px;
+            -o-border-radius: 8px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="dummyText">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</div>
+<div class="slideInButton">BUTTON</div>
+<div class="jq-slide-in-element">slide in<div class="jq-slide-in-close">閉じる</div></div>
+<div class="dummyText">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</div>
+<div class="dummyText">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</div>
+<div class="dummyText">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</div>
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="../js/jquery.slideIn.js"></script>
+<script>
+// $("html").css("zoom", $(window).width() / 640);
+
+$('.slideInButton').slideIn({
+    viewPortWidth: 0,   // calc width;
+    slideInElement: '.jq-slide-in-element',  // slide in element class
+    slideInTop: 20,
+    slideInLeft: 20,
+    closeButtonElement: '.jq-slide-in-close',   // close slide in element
+    invisibleElement: 'body',   // this element set to invisible when slide in
+    invisibleBackGround: true,    // if set false invisibleElement stay visivle
+    zoomedElement: 'html',   // if you set zoom property, set element selector ex. 'html'
+    debugMode: true    // set true more log shows conlose
+});
+
+</script>
+</body>
+</html>
+
+
+
+

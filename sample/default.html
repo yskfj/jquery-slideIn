@@ -52,7 +52,7 @@
 </head>
 <body>
 
-<h1>ページズームあり</h1>
+<h1>オプションなし</h1>
 <p><a href="index.html">トップ</a></p>
 <p><a href="default.html">オプションなし</a></p>
 <p><a href="options.html">オプション指定あり</a></p>
@@ -93,23 +93,11 @@
 </div>
 
 
-
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="../js/jquery.slideIn.js"></script>
 <script>
-$("html").css("zoom", $(window).width() / 640);
 
-$('.slideInButton').slideIn({
-    viewPortWidth: 0,   // calc width;
-    slideInElement: '.jq-slide-in-element',  // slide in element class
-    slideInTop: 20,
-    slideInLeft: 20,
-    closeButtonElement: '.jq-slide-in-close',   // close slide in element
-    invisibleElement: 'body',   // this element set to invisible when slide in
-    invisibleBackGround: true,    // if set false invisibleElement stay visivle
-    zoomedElement: 'html',   // if you set zoom property, set element selector ex. 'html'
-    debugMode: true    // set true more log shows conlose
-});
+$('.slideInButton').slideIn();
 
 </script>
 </body>

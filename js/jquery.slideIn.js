@@ -48,6 +48,7 @@
                 css["-moz-transition"]=options.slideInTransition;
                 css["-o-transition"]=options.slideInTransition;
                 css["transition"]=options.slideInTransition;
+                css["-webkit-transform"]="translate3d(0,0,0)";
             }
 
             // fix slideInElement position
@@ -63,9 +64,7 @@
             if(options.debugMode) log("left: "+css["left"]);
             if(options.debugMode) log("transition: "+css["transition"]);
             $(options.slideInElement).css(css);
-            $(options.slideInElement).show();
-
-            $(obj).bind('click.slideIn touchend.slideIn',function(event){show(event);});
+            $(obj).bind('click.slideIn',function(event){show(event);});
             $(options.closeButtonElement).bind('click.slideIn touchend.slideIn',function(event){hide(event);});
         }); // elements.each
 
@@ -89,8 +88,19 @@
                 event.returnValue = false;
             }
             if(event.handled !== true){
-                if(options.invisibleBackGround) $(options.invisibleElement).css({"visibility":"hidden"});
-                $(options.slideInElement).css({"left":options.slideInLeft+"px"});
+                var top = $(document).scrollTop();
+                top = top / zoom;
+                top += options.slideInTop;
+                css["top"]=top;
+                $(options.invisibleElement).css({"overflow":"hidden"});
+                $(options.slideInElement).css({"display":"block","top":top+"px"});
+                if(options.invisibleBackGround){
+                    $(options.invisibleElement).css({"visibility":"hidden"});
+                }
+                setTimeout(function(){
+                    $(options.slideInElement).css({"left":options.slideInLeft+"px"});
+                    // $(options.slideInElement).css({"transform":"translate3d(-"+css["left"]+"px, 0, 0)"});
+                },300);
                 event.handled = true;
             } else {
                 return false;
@@ -105,8 +115,14 @@
                 event.returnValue = false;
             }
             if(event.handled !== true){
-                if(options.invisibleBackGround) $(options.invisibleElement).css({"visibility":"visible"});
                 $(options.slideInElement).css(css);
+                setTimeout(function(){
+                    $(options.invisibleElement).css({"overflow":"visible"});
+                    if(options.invisibleBackGround){
+                        $(options.invisibleElement).css({"visibility":"visible"});
+                    }
+                    $(options.slideInElement).hide();
+                },500);
                 event.handled = true;
             } else {
                 return false;
